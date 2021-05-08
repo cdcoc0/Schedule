@@ -33,7 +33,7 @@ const Clock = () => {
 
     return (
         <ClockContainer>
-            <h1>{`${time.hours}:${time.minutes}`}</h1>
+            <h1>{`${time.hours < 10 ? `0${time.hours}` : time.hours}:${time.minutes < 10 ? `0${time.minutes}` : time.minutes}`}</h1>
         </ClockContainer>
     )
 }
