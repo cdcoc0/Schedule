@@ -1,9 +1,13 @@
 import React from 'react';
 import Clock from './Clock';
+import User from './User';
 
 const Momentum = () => {
     return (
-        <Clock></Clock>
+        <div>
+            <Clock />
+            <User />
+        </div>
     );
 }
 
