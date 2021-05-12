@@ -6,9 +6,9 @@ import TodoList from './TodoList';
 const Momentum = () => {
     return (
         <div>
+            <TodoList />
             <Clock />
             <User />
-            <TodoList />
         </div>
     );
 }

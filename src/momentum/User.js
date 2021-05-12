@@ -29,7 +29,7 @@ const User = () => {
                 <form  onSubmit={onUserSubmit}>
                     <input type="text" placeholder="Name" 
                     value={userInput} onChange={onUserChange} />
-                    <button>enter</button>
+                    <button type="submit">enter</button>
                 </form>
             );
         }
