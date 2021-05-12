@@ -1,45 +1,45 @@
 import React, {useState, useCallback} from 'react';
 import styled from 'styled-components';
 
-const UserContainer = styled.div`
+const UserDiv = styled.div`
 `
 
 const User = () => {   
     const USER_KEY = "User"; 
-    const [userInput, setUserInput] = useState("");
+    const [userInput, setUserInput] = useState('');
 
-    const onChange = useCallback (
+    const onUserChange = useCallback (
         e => {
             setUserInput(e.target.value);
             }, []);
 
-    const onSubmit = useCallback (
+    const onUserSubmit = useCallback (
         () => {
             //e.preventDefault();
             //새로고침 안할 수 있는 방법 찾아보기 visible true/false
             localStorage.setItem(USER_KEY, userInput);
-            //setUserInput("");
+            //setUserInput('');
             }, [userInput]);
 
     const loadUser = useCallback (
         () => {
         const USER_VAL = localStorage.getItem(USER_KEY);
-        if(USER_VAL === "") {
+        if(USER_VAL === '') {
             return (
-                <form  onSubmit={onSubmit}>
+                <form  onSubmit={onUserSubmit}>
                     <input type="text" placeholder="Name" 
-                    value={userInput} onChange={onChange} />
+                    value={userInput} onChange={onUserChange} />
                     <button>enter</button>
                 </form>
             );
         }
         return (<h4>{`Good Day ${USER_VAL}!`}</h4>);
-    }, [onChange, onSubmit, userInput]);
+    }, [onUserChange, onUserSubmit, userInput]);
 
     return (
-        <UserContainer>
+        <UserDiv>
             {loadUser()}
-        </UserContainer>
+        </UserDiv>
     );
 }
 
