@@ -6,11 +6,19 @@ const TodoListDiv = styled.div`
 `
 
 const TodoList = () => {
-    const [todoInput, setTodoInput] = useState('');
-    const [todos, setTodos] = useState([]);
-
     const todoLS = localStorage.getItem('TODO');
+    const [todoInput, setTodoInput] = useState('');
+    const [todos, setTodos] = useState(todoLS ? JSON.parse(todoLS) : []);
+
     //const nextId = useRef(todos.length + 1);
+
+    const getTodos = useCallback(() => {
+        if(todoLS) {
+            const parsedTodos = JSON.parse(todoLS);
+            return parsedTodos.map(todo => <TodoItem id={todo.id} todo={todo} />);
+        };
+        return null;
+    }, [todoLS])
 
     const onTodoChange = useCallback(e => setTodoInput(e.target.value), []);
     
@@ -28,13 +36,7 @@ const TodoList = () => {
         handleInsert(todoInput);
     }, [handleInsert, todoInput]);
 
-    const getTodos = useCallback(() => {
-        if(todoLS) {
-            const parsedTodos = JSON.parse(todoLS);
-            return parsedTodos.map(todo => <TodoItem id={todo.id} todo={todo} />);
-        };
-        return null;
-    }, [todoLS])
+    const onRemove = useCallback(); //우선 아이콘 가져와서 UI부터 해결
 
     return(
         <TodoListDiv>
@@ -48,7 +50,5 @@ const TodoList = () => {
         </TodoListDiv>
     );
 }
-
-//새로고침 할 때마다 state 초기화 되는거는 DB 연동하면 해결
 
 export default TodoList;
