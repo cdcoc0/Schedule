@@ -34,13 +34,19 @@ const TodoList = () => {
         localStorage.setItem("TODO", filter ? JSON.stringify(filter) : null);
     }, [todos]);
 
+    const onToggle = useCallback(id => {
+        const toggle = todos.map(todo => todo.id === id ? {...todo, done: !todo.done} : todo);
+        setTodos(toggle);
+        localStorage.setItem("TODO", JSON.stringify(toggle))
+    }, [todos]);
+
     const getTodos = useCallback(() => {
         if(todoLS) {
             const parsedTodos = JSON.parse(todoLS);
-            return parsedTodos.map(todo => <TodoItem id={todo.id} todo={todo} onRemove={onRemove} />);
+            return parsedTodos.map(todo => <TodoItem key={todo.id} todo={todo} onRemove={onRemove} onToggle={onToggle}/>);
         };
         return null;
-    }, [todoLS, onRemove])
+    }, [todoLS, onRemove, onToggle])
 
     return(
         <TodoListDiv>
@@ -53,6 +59,6 @@ const TodoList = () => {
             </div>
         </TodoListDiv>
     );
-}
+};
 
 export default TodoList;
