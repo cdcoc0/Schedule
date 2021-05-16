@@ -12,14 +12,6 @@ const TodoList = () => {
 
     //const nextId = useRef(todos.length + 1);
 
-    const getTodos = useCallback(() => {
-        if(todoLS) {
-            const parsedTodos = JSON.parse(todoLS);
-            return parsedTodos.map(todo => <TodoItem id={todo.id} todo={todo} />);
-        };
-        return null;
-    }, [todoLS])
-
     const onTodoChange = useCallback(e => setTodoInput(e.target.value), []);
     
     const handleInsert = useCallback(text => {
@@ -36,7 +28,19 @@ const TodoList = () => {
         handleInsert(todoInput);
     }, [handleInsert, todoInput]);
 
-    const onRemove = useCallback(); //우선 아이콘 가져와서 UI부터 해결
+    const onRemove = useCallback(id => {
+        const filter = todos.filter(todo => todo.id !== id);
+        setTodos(filter);
+        localStorage.setItem("TODO", filter ? JSON.stringify(filter) : null);
+    }, [todos]);
+
+    const getTodos = useCallback(() => {
+        if(todoLS) {
+            const parsedTodos = JSON.parse(todoLS);
+            return parsedTodos.map(todo => <TodoItem id={todo.id} todo={todo} onRemove={onRemove} />);
+        };
+        return null;
+    }, [todoLS, onRemove])
 
     return(
         <TodoListDiv>
