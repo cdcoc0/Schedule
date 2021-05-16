@@ -1,3 +1,16 @@
 .TodoItem {
     display: flex;
+    align-items: center;
+
+    .checkbox {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .remove {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
 }
