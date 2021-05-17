@@ -1,5 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+
+const fadeIn = keyframes`
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+`;
 
 const BackContainer = styled.img`
     position: absolute;
@@ -16,6 +25,10 @@ const BackContainer = styled.img`
     url("https://source.unsplash.com/daily");
     background-size: cover;
     z-index: -1;
+    animation-name: ${fadeIn};
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+ ;   
 `
 
 const Background = () => {
