@@ -27,9 +27,8 @@ const BackContainer = styled.img`
     z-index: -1;
     animation-name: ${fadeIn};
     animation-duration: 0.5s;
-    animation-timing-function: ease-in;
- ;   
-`
+    animation-timing-function: ease-in;   
+`;
 
 const Background = () => {
     return(

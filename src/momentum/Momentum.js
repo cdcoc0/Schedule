@@ -3,6 +3,7 @@ import Clock from './Clock';
 import User from './User';
 import TodoList from './TodoList';
 import Background from './Background';
+import Weather from './Weather';
 
 const Momentum = () => {
     return (
@@ -10,6 +11,7 @@ const Momentum = () => {
             <Background />
             <TodoList />
             <Clock />
+            <Weather />
             <User />
         </div>
     );
