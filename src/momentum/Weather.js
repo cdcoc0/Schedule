@@ -1,4 +1,10 @@
 import React, {useCallback, useEffect, useState} from 'react';
+import styled from 'styled-components';
+
+const WeatherContainer = styled.div`
+    font-family: Verdana, sans-serif;
+    color: white;
+`
 
 
 const Weather = () => {
@@ -66,11 +72,11 @@ const Weather = () => {
     }, []);
 
     return (
-        <div>
+        <WeatherContainer>
             <div>{`@${weather.place}`}</div>
             <span>{`${weather.temperature}°C `}</span>
             <span>{weather.description}</span>
-        </div>
+        </WeatherContainer>
     );
 };
 

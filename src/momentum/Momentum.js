@@ -9,10 +9,10 @@ const Momentum = () => {
     return (
         <div>
             <Background />
-            <TodoList />
             <Clock />
             <Weather />
             <User />
+            <TodoList />
         </div>
     );
 }
