@@ -48,10 +48,12 @@ const TodoList = () => {
 
     return(
         <div className="TodoList">
-            <form onSubmit={onTodoSubmit}>
-                <input type="text" onChange={onTodoChange} value={todoInput} />
-                <button type="submit">추가</button>
-            </form>
+            <div className="TodoForm">
+                <form onSubmit={onTodoSubmit}>
+                    <input type="text" placeholder="to do" onChange={onTodoChange} value={todoInput} />
+                    <button type="submit">+</button>
+                </form>
+            </div>
             <div>
                 {getTodos()}
             </div>

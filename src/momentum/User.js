@@ -6,7 +6,7 @@ const UserDiv = styled.div`
     display: flex;
     flex-direction: row-reverse;
     color: white;
-    margin-right: 5rem;
+    margin-right: 7rem;
     font-family: "Lucida Console", Helvetica, sans-serif;
     font-size: 1.3rem;
     font-weight: bold;
