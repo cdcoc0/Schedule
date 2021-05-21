@@ -2,10 +2,18 @@ import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 const WeatherContainer = styled.div`
-    font-family: Verdana, sans-serif;
     color: white;
+    font-family: "Lucida Console", Helvetica, sans-serif;
 `
 
+const Location = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+`
+const Desc = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+`
 
 const Weather = () => {
     const [weather, setWeather] = useState({
@@ -73,9 +81,8 @@ const Weather = () => {
 
     return (
         <WeatherContainer>
-            <div>{`@${weather.place}`}</div>
-            <span>{`${weather.temperature}°C `}</span>
-            <span>{weather.description}</span>
+            <Location>{`@ ${weather.place}`}</Location>
+            <Desc>{`${weather.temperature}°C ${weather.description}`}</Desc>
         </WeatherContainer>
     );
 };

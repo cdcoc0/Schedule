@@ -2,7 +2,16 @@ import React, {useState, useCallback} from 'react';
 import styled from 'styled-components';
 
 const UserDiv = styled.div`
+    //background: black;
+    display: flex;
+    flex-direction: row-reverse;
+    color: white;
+    margin-right: 5rem;
+    font-family: "Lucida Console", Helvetica, sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
 `
+//#B367FF
 
 const User = () => {   
     const USER_KEY = "User"; 
@@ -33,7 +42,7 @@ const User = () => {
                 </form>
             );
         }
-        return (<h4>{`Good Day ${USER_VAL}!`}</h4>);
+        return (<h4>{`Good Day ${USER_VAL}`}</h4>);
     }, [onUserChange, onUserSubmit, userInput]);
 
     return (

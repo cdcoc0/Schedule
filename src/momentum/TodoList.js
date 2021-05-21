@@ -1,9 +1,7 @@
 import React, {useState, useCallback} from 'react';
 import styled from 'styled-components';
 import TodoItem from './TodoItem';
-
-const TodoListDiv = styled.div`
-`
+import './TodoList.scss';
 
 const TodoList = () => {
     const todoLS = localStorage.getItem('TODO');
@@ -49,7 +47,7 @@ const TodoList = () => {
     }, [todoLS, onRemove, onToggle])
 
     return(
-        <TodoListDiv>
+        <div className="TodoList">
             <form onSubmit={onTodoSubmit}>
                 <input type="text" onChange={onTodoChange} value={todoInput} />
                 <button type="submit">추가</button>
@@ -57,7 +55,7 @@ const TodoList = () => {
             <div>
                 {getTodos()}
             </div>
-        </TodoListDiv>
+        </div>
     );
 };
 

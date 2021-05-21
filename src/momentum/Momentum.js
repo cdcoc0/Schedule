@@ -4,14 +4,21 @@ import User from './User';
 import TodoList from './TodoList';
 import Background from './Background';
 import Weather from './Weather';
+import styled from 'styled-components';
+
+const ClockWeather = styled.div`
+    margin-right: 5rem;
+`
 
 const Momentum = () => {
     return (
         <div>
             <Background />
-            <Clock />
-            <Weather />
             <User />
+            <ClockWeather>
+                <Clock />
+                <Weather />
+            </ClockWeather>
             <TodoList />
         </div>
     );

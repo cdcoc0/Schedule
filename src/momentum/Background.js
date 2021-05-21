@@ -22,7 +22,7 @@ const BackContainer = styled.img`
         rgba(20, 20, 20, 0.5) 70%,
         rgba(20, 20, 20, 0.7)
     ),
-    url("https://source.unsplash.com/random/1600x900");
+    url("https://source.unsplash.com/category/travel/1600x900");
     background-size: cover;
     z-index: -1;
     animation-name: ${fadeIn};

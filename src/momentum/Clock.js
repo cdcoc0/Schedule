@@ -2,6 +2,13 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 const ClockContainer = styled.div`
+    //background: black;
+    height: 120px;
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    color: white;
 `
 
 const Clock = () => {
