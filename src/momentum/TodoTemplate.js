@@ -1,6 +1,7 @@
 import React, {useState, useCallback} from 'react';
 import TodoInsert from './TodoInsert';
 import TodoList from './TodoList';
+import './styles/TodoTemplate.scss';
 
 const TodoTemplate = () => {
     const todoLS = localStorage.getItem('TODO');
@@ -27,7 +28,7 @@ const TodoTemplate = () => {
     }, [todos]);
     
     return (
-        <div>
+        <div className="TodoTemplate">
             <TodoInsert onInsert={onInsert} />
             <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
         </div>

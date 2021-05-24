@@ -13,12 +13,10 @@ const TodoInsert = ({onInsert}) => {
     }, [onInsert, todoInput]);
 
     return(
-        <div className="TodoInsert">
-            <form onSubmit={onTodoSubmit}>
-                <input type="text" onChange={onTodoChange} value={todoInput} />
-                <button type="submit">추가</button>
-            </form>
-        </div>
+        <form className="TodoInsert" onSubmit={onTodoSubmit}>
+            <input type="text" placeholder="to do" onChange={onTodoChange} value={todoInput} />
+            <button type="submit">+</button>
+        </form>
     );
 };
 
