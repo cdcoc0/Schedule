@@ -3,15 +3,17 @@
     display: flex;
     align-items: center;
     //border: 1px solid white;
-    color: black;
+    border-radius: 4px;
+    color: rgb(36, 36, 36);
 
     .checkbox {
         flex: 1;
         display: flex;
         align-items: center;
+        margin-left: 0.25rem;
         cursor: pointer;
         svg {
-            color: #c890ff;
+            color: #c386ff;
             font-size: 2rem;
             border-radius: 4px;
         }
@@ -38,6 +40,6 @@
     }
     
     & + & {
-        margin-top: 0.5rem;
+        margin-top: 0.75rem;
     }
 }
