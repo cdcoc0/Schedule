@@ -2,14 +2,37 @@ import React, {useState, useCallback} from 'react';
 import styled from 'styled-components';
 
 const UserDiv = styled.div`
+    //flex: 1;
     //background: black;
-    display: flex;
-    flex-direction: row-reverse;
+    width: 930px;
+    padding: 1rem;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: 0;
     color: white;
-    margin-right: 7rem;
+    //margin-right: 7rem;
     font-family: "Lucida Console", Helvetica, sans-serif;
     font-size: 1.3rem;
+    //font-weight: bold;
+    
+`
+const Welcome = styled.div`
+    //background-color: pink;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+`
+
+const Name = styled.div`
+    //background-color: green;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    font-family: verdana, sans-serif;
     font-weight: bold;
+
 `
 //#B367FF
 
@@ -42,7 +65,12 @@ const User = () => {
                 </form>
             );
         }
-        return (<h4>{`Good Day ${USER_VAL}`}</h4>);
+        return (
+            <div>
+                <Welcome>Good Day</Welcome>
+                <Name>{`${USER_VAL}`}</Name>
+            </div>
+        );
     }, [onUserChange, onUserSubmit, userInput]);
 
     return (

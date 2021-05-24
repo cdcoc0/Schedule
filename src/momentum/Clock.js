@@ -1,14 +1,27 @@
 import React, {useEffect, useState} from 'react';
+import moment from 'moment';
 import styled from 'styled-components';
+
+const DateContainer = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: "Lucida Console", Helvetica, sans-serif;
+    color: white;
+    font-size: 1.25rem;;
+    margin-top: 3rem;
+`
 
 const ClockContainer = styled.div`
     //background: black;
-    height: 120px;
+    //height: 120px;
     display: flex;
     flex-direction: row-reverse;
     font-family: sans-serif;
-    font-size: 1.5rem;
+    font-size: 4rem;
+    font-weight: bold;
     color: white;
+    align-items: center;
+    margin-bottom: 1.5rem;
 `
 
 const Clock = () => {
@@ -25,13 +38,19 @@ const Clock = () => {
         return () => clearInterval(oneMinCall);
     });
 
+    const month = moment(time.date.getMonth()).format('MMM');
+    const date = time.date.getDate();
+    const day = moment(time.date.getDate()).format('ddd');
     const hours = time.date.getHours();
     const minutes = time.date.getMinutes();
 
     return (
-        <ClockContainer>
-            <h1>{`${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}`}</h1>
-        </ClockContainer>
+        <div>
+            <DateContainer>{`${month} ${date} (${day})`}</DateContainer>
+            <ClockContainer>
+                {`${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}`}
+            </ClockContainer>
+        </div>
     )
 }
 
