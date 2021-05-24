@@ -1,5 +1,6 @@
 .TodoInsert {
     display: flex;
+    margin-bottom: 2rem;
 
     input {
         background: none;
@@ -8,7 +9,7 @@
         padding: 0.25rem;
         font-size: 1rem;
         background: #e2e2e2;
-        margin-left: 1.5rem;
+        margin-left: 2.75rem;
         // &::placeholder {
         //     color: #c890ff;
         // }
@@ -24,7 +25,7 @@
         color: white;
         padding-right: 0.5rem;
         padding-left: 0.5rem;
-        margin-right: 1.5rem;
+        margin-right: 2.75rem;
         margin-left: 0.5rem;
         font-size: 1.5rem;
         display: flex;

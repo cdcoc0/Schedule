@@ -1,16 +1,43 @@
 .TodoItem {
+    background-color: #e2e2e29f;
     display: flex;
     align-items: center;
+    //border: 1px solid white;
+    color: black;
 
     .checkbox {
+        flex: 1;
         display: flex;
         align-items: center;
         cursor: pointer;
+        svg {
+            color: #c890ff;
+            font-size: 2rem;
+            border-radius: 4px;
+        }
+    }
+
+    .text {
+        flex: 1;
+        margin-left: 0.5rem;
+        font-size: 1.25rem;
+        display: flex;
+        justify-content: center;
     }
     
     .remove {
         display: flex;
         align-items: center;
+        font-size: 1.75rem;
+        margin-right: 0.25rem;
+        color: #ff6b6b;
         cursor: pointer;
+        &:hover {
+            color: #ff8787;
+        }
+    }
+    
+    & + & {
+        margin-top: 0.5rem;
     }
 }
