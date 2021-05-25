@@ -66,8 +66,8 @@ const Weather = () => {
     
     const loadCoords = useCallback(() => {
         const Coords = localStorage.getItem("COORDS");
-        if(Coords === "") {
-            console.log("COORDS 가져오는 중");
+        if(!Coords) {
+            //console.log("COORDS 가져오는 중");
             getCoords();
         } else {
             const parsedCoords = JSON.parse(Coords);
