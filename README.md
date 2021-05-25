@@ -29,7 +29,7 @@ An advanced chrome app Momentum with React based on [previous clone project of M
   - Mainly styled-components
   - Scss for the components which has complex logic or relatively large amount of codes
   - Classnames to give specific condition
-  - react-icons <br />
+  - eact-icons <br />
 
--Deploy
+- Deploy
   - Gh-pages <br />
