@@ -54,7 +54,7 @@ const Weather = () => {
         };
         saveCoords(coordsObj);
         getWeather(latitude, longitude);
-    }, []);
+    }, [getWeather, saveCoords]);
     
     const geoErr = useCallback(() => {
         console.log("geolocation error");
@@ -62,22 +62,24 @@ const Weather = () => {
     
     const getCoords = useCallback(() => {
         navigator.geolocation.getCurrentPosition(geoSuccess, geoErr);
-    }, []);
+    }, [geoErr, geoSuccess]);
     
     const loadCoords = useCallback(() => {
         const Coords = localStorage.getItem("COORDS");
-        if(!Coords) {
-            //console.log("COORDS 가져오는 중");
-            getCoords();
-        } else {
+        if(Coords !== '') {
             const parsedCoords = JSON.parse(Coords);
+            console.log(Coords);
+            console.log(parsedCoords);
             getWeather(parsedCoords.latitude, parsedCoords.longitude);
+        } else {
+            console.log("COORDS 가져오는 중");
+            getCoords();
         }
-    },[]);   
+    },[getCoords, getWeather]);   
     
     useEffect(() => {
         loadCoords();
-    }, []);
+    },[loadCoords]);
 
     return (
         <WeatherContainer>
