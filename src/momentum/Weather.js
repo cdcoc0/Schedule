@@ -62,24 +62,11 @@ const Weather = () => {
     
     const getCoords = useCallback(() => {
         navigator.geolocation.getCurrentPosition(geoSuccess, geoErr);
-    }, [geoErr, geoSuccess]);
-    
-    const loadCoords = useCallback(() => {
-        const Coords = localStorage.getItem("COORDS");
-        if(Coords !== '' || null) {
-            const parsedCoords = JSON.parse(Coords);
-            console.log(Coords);
-            console.log(parsedCoords);
-            getWeather(parsedCoords.latitude, parsedCoords.longitude);
-        } else {
-            console.log("COORDS 가져오는 중");
-            getCoords();
-        }
-    },[getCoords, getWeather]);   
+    }, [geoErr, geoSuccess]);  
     
     useEffect(() => {
-        loadCoords();
-    },[loadCoords]);
+        getCoords();
+    },[]);
 
     return (
         <WeatherContainer>

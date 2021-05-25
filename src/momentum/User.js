@@ -15,8 +15,9 @@ const UserForm = styled.form`
         outline: none;
         border: none;
         width: 250px;
-        padding: 0.75rem;
-        font-size: 1rem;
+        padding: 0.25rem;
+        padding-left: 0.5rem;
+        font-size: 1.5rem;
         color: white;
        // background: #e2e2e2;
        border-bottom: 3px solid #e2e2e2;
@@ -29,14 +30,14 @@ const UserForm = styled.form`
         background: none;
         outline: none;
         border: none;
-    }
+        display: flex;
 
-    svg {
+        svg {
         background: none;
         outline: none;
         border: none;
         //background: #c890ff;
-        border: 2px solid #c890ff;
+        border: 3px solid #c890ff;
         font-size: 1.5rem;
         color: #c890ff;
         padding: 0.25rem;
@@ -48,6 +49,7 @@ const UserForm = styled.form`
             background: #f0e1ff8a;
             color: #be80fc;
         }
+    }
     }
 `
 
@@ -90,7 +92,7 @@ const User = () => {
     const USER_KEY = "User"; 
     const USER_VAL = localStorage.getItem(USER_KEY);
     const [userInput, setUserInput] = useState('');
-    const [user, setUser] = useState(USER_VAL === '' ? '' : USER_VAL);
+    const [user, setUser] = useState(USER_VAL);
 
     const onUserChange = useCallback (
         e => {
@@ -106,18 +108,32 @@ const User = () => {
             //setUserInput('');
             }, [userInput]);
 
+    const getUser = useCallback(() => {
+        const userInit = localStorage.getItem(USER_KEY);
+        if(userInit === null) {
+            localStorage.setItem(USER_KEY, '');
+            setUser('');
+        };
+        if(user === '') {
+            return (
+                <UserForm  onSubmit={onUserSubmit}>
+                    <input type="text" placeholder="Name" 
+                    value={userInput} onChange={onUserChange} />
+                    <button type="submit"><MdSubdirectoryArrowLeft /></button>
+                </UserForm>
+            );
+        };
+        return (
+            <div>
+                <Welcome>Good Day</Welcome>
+                <Name>{`${user}`}</Name>
+            </div>
+        );
+    }, [onUserChange, onUserSubmit, user, userInput])
+
     return (
         <UserDiv>
-            {user === '' || null ? 
-            (<UserForm  onSubmit={onUserSubmit}>
-                <input type="text" placeholder="Name" 
-                value={userInput} onChange={onUserChange} />
-                <button type="submit"><MdSubdirectoryArrowLeft /></button>
-            </UserForm>) : 
-            (<div>
-                <Welcome>Good Day</Welcome>
-                <Name>{`${USER_VAL}`}</Name>
-            </div>)}
+            {getUser()}
         </UserDiv>
     );
 }
