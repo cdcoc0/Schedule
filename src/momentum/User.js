@@ -108,7 +108,7 @@ const User = () => {
 
     return (
         <UserDiv>
-            {user === '' ? 
+            {user === '' || null ? 
             (<UserForm  onSubmit={onUserSubmit}>
                 <input type="text" placeholder="Name" 
                 value={userInput} onChange={onUserChange} />

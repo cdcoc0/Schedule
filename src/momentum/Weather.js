@@ -66,7 +66,7 @@ const Weather = () => {
     
     const loadCoords = useCallback(() => {
         const Coords = localStorage.getItem("COORDS");
-        if(Coords !== '') {
+        if(Coords !== '' || null) {
             const parsedCoords = JSON.parse(Coords);
             console.log(Coords);
             console.log(parsedCoords);
