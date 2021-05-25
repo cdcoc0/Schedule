@@ -17,11 +17,18 @@ const UserForm = styled.form`
         width: 250px;
         padding: 0.75rem;
         font-size: 1rem;
+        color: white;
        // background: #e2e2e2;
        border-bottom: 3px solid #e2e2e2;
        &::placeholder {
            color: #e2e2e2;
        }
+    }
+
+    button {
+        background: none;
+        outline: none;
+        border: none;
     }
 
     svg {
@@ -81,9 +88,9 @@ const Name = styled.div`
 
 const User = () => {   
     const USER_KEY = "User"; 
-    const [userInput, setUserInput] = useState('');
-    const [user, setUser] = useState('');
     const USER_VAL = localStorage.getItem(USER_KEY);
+    const [userInput, setUserInput] = useState('');
+    const [user, setUser] = useState(USER_VAL === '' ? '' : USER_VAL);
 
     const onUserChange = useCallback (
         e => {
@@ -99,33 +106,13 @@ const User = () => {
             //setUserInput('');
             }, [userInput]);
 
-    // const loadUser = useCallback (
-    //     () => {
-    //     if(USER_VAL === '') {
-    //         return (
-    //             <UserForm  onSubmit={onUserSubmit}>
-    //                 <input type="text" placeholder="Name" 
-    //                 value={userInput} onChange={onUserChange} />
-    //                 <MdSubdirectoryArrowLeft type="submit" />
-    //                 {/* <button type="submit">enter</button> */}
-    //             </UserForm>
-    //         );
-    //     }
-    //     return (
-    //         <div>
-    //             <Welcome>Good Day</Welcome>
-    //             <Name>{`${USER_VAL}`}</Name>
-    //         </div>
-    //     );
-    // }, [onUserChange, onUserSubmit, userInput]);
-
     return (
         <UserDiv>
             {user === '' ? 
             (<UserForm  onSubmit={onUserSubmit}>
                 <input type="text" placeholder="Name" 
                 value={userInput} onChange={onUserChange} />
-                <MdSubdirectoryArrowLeft type="submit" />
+                <button type="submit"><MdSubdirectoryArrowLeft /></button>
             </UserForm>) : 
             (<div>
                 <Welcome>Good Day</Welcome>

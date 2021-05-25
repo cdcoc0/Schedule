@@ -19,10 +19,10 @@ const BackContainer = styled.img`
     background: linear-gradient(
         to right,
         rgba(20, 20, 20, 0.1) 10%,
-        rgba(20, 20, 20, 0.5) 70%,
-        rgba(20, 20, 20, 0.7)
+        rgba(20, 20, 20, 0.7) 60%,
+        rgba(20, 20, 20, 0.8)
     ),
-    url("https://source.unsplash.com/category/travel/1600x900");
+    url("https://source.unsplash.com/1600x900/?travel");
     background-size: cover;
     z-index: -1;
     animation-name: ${fadeIn};
