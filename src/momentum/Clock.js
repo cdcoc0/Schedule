@@ -38,7 +38,7 @@ const Clock = () => {
         return () => clearInterval(oneMinCall);
     });
 
-    const month = moment(`${time.date.getMonth()}`).format('MMM');
+    const month = moment(`${time.date.getMonth() + 1}`).format('MMM');
     const date = time.date.getDate();
     const day = moment(time.date.getDate()).format('ddd');
     const hours = time.date.getHours();
