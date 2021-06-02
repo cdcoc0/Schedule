@@ -7,7 +7,7 @@ const UserForm = styled.form`
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 4rem;
+    margin-top: 7rem;
 
     input {
         //flex: 1;
