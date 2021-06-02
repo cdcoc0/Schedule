@@ -4,10 +4,10 @@ An advanced chrome app Momentum with React based on [previous clone project of M
 ## 📸Screenshots
 
 <div>
-  <img width="800" height="400" src="https://user-images.githubusercontent.com/61813428/120477604-ee218280-c3e6-11eb-9527-15cdd0643a61.png">
+  <img width="800" height="400" src="https://user-images.githubusercontent.com/61813428/120525113-bf210600-c412-11eb-9de4-90e503377c92.png">
 </div>
 <div>
-  <img width="800" height="400" src="https://user-images.githubusercontent.com/61813428/120477811-2628c580-c3e7-11eb-8ca2-53aa02fa3d76.png">
+  <img width="800" height="400" src="https://user-images.githubusercontent.com/61813428/120525149-c6e0aa80-c412-11eb-81d7-7fcf3055c0ef.png">
 </div>
 
 ## 🌎URL
