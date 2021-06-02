@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import styled from 'styled-components';
 
 const DateContainer = styled.div`
@@ -38,9 +38,12 @@ const Clock = () => {
         return () => clearInterval(oneMinCall);
     });
 
-    const month = moment(`${time.date.getMonth() + 1}`).format('MMM');
+    const month = dayjs(time.date).format('MMM');
     const date = time.date.getDate();
-    const day = moment(time.date.getDate()).format('ddd');
+    const d = time.date.getDay();
+    const day = dayjs(time.date).format('ddd');
+    
+    console.log(d);
     const hours = time.date.getHours();
     const minutes = time.date.getMinutes();
 

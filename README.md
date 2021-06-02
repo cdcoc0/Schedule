@@ -19,7 +19,7 @@ An advanced chrome app Momentum with React based on [previous clone project of M
   - Unsplash API <br />
   
 - Date / Time
-  - Moment.js <br />
+  - Day.js <br />
 
 - Weather
   - Axios
